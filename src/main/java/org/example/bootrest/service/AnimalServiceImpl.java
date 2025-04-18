@@ -16,7 +16,8 @@ public class AnimalServiceImpl implements AnimalService {
 
     @Override
     public List<Animal> findAll() {
-        return List.of();
+//        return List.of();
+        return animalMapper.findAll();
     }
 
     @Override
