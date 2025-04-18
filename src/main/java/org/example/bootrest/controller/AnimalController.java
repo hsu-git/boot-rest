@@ -29,8 +29,7 @@ public class AnimalController {
     @PostMapping
     public Animal create (
             @RequestBody AnimalRequestDTO dto) {
-//        Animal animal = new Animal("", dto.name(), dto.description(), "");    // 일단 주석처리
-//        return animalService.save();
-        return null;
+        String story = "";  //  AI가 붙을 거임
+        return animalService.save(dto.toAnimal(story));
     }
 }
