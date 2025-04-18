@@ -16,6 +16,12 @@ spring:
       url: ${MYSQL_URL}
       username: ${MYSQL_USERNAME}
       password: ${MYSQL_PASSWORD}
+# 로깅 설정
+logging:
+  level:
+    #    org.example.bootsecurity.model.mapper: DEBUG # mapper 패키지의 로깅 레벨을 DEBUG로 설정 (DEV)
+    org.example.bootsecurity.model.mapper: ERROR # mapper 패키지의 로깅 레벨을 ERROR로 설정
+    # 너무 쓸데없는 많은 로그 방지
 #    postgresql 설정
 #    properties:
 #      hibernate:
@@ -28,11 +34,11 @@ spring:
 #    username: ${POSTGRES_USERNAME} # PostgreSQL 사용자 이름으로 변경
 #    password: ${POSTGRES_PASSWORD} # PostgreSQL 비밀번호로 변경
 # 객체 스토리지
-supabase:
-  url: ${SUPABASE_URL}
-  bucket-name: ${SUPABASE_BUCKET_NAME}
-  access-key: ${SUPABASE_ACCESS_KEY}
-# AI
-together:
-  api-key: ${TOGETHER_API_KEY}
-  model: ${TOGETHER_MODEL}
+#supabase:
+#  url: ${SUPABASE_URL}
+#  bucket-name: ${SUPABASE_BUCKET_NAME}
+#  access-key: ${SUPABASE_ACCESS_KEY}
+## AI
+#together:
+#  api-key: ${TOGETHER_API_KEY}
+#  model: ${TOGETHER_MODEL}
