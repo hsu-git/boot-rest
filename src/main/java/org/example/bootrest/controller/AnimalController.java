@@ -9,7 +9,7 @@ import java.util.List;
 
 //@RestController("/api/animal")    // 이거 아님!
 @RestController // Spring
-@RequestMapping("/api/animal")  // 이거임!
+@RequestMapping("/api/animals")  // 이거임!
 public class AnimalController {
     private final AnimalService animalService;
 

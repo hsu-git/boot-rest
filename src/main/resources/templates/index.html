@@ -8,23 +8,23 @@
     <title>생명체 만들기</title>
     <style>
         @font-face {
-            font-family: 'LeeSeoyun';
-            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+            font-family: 'SinchonRhapsody';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2503@1.0/SinchonRhapsody.woff2') format('woff2');
             font-weight: normal;
             font-style: normal;
         }
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         body {
-            font-family: LeeSeoyun, sans-serif;
+            font-family: 'SinchonRhapsody', sans-serif;
             padding: 1rem;
         }
         section {
-            max-width:576px;
-            margin: auto;
+            max-width: 576px;
+            /*margin: auto;*/
         }
         #animal-form {
             display: flex;
@@ -39,29 +39,39 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>당신만의 생물체를 만들어보세요.</h1>
-    </header>
-    <section id="animal-form-container">
-        <form id="animal-form">
-            <label>이름 : <input id="animal-name"></label>
-            <label>설명 : <textarea id="animal-desc"></textarea></label>
-            <button>생성</button>
-        </form>
-    </section>
-    <section id="animal-list">
+<header>
+    <h1>당신만의 생물체를 만들어보세요</h1>
+</header>
+<section id="animal-form-container">
+    <form id="animal-form">
+        <label>이름 : <input id="animal-name"></label>
+        <label>설명 : <textarea id="animal-desc"></textarea></label>
+        <button>생성</button>
+    </form>
+</section>
+<section id="animal-list">
 
-    </section>
-    <script>
-        const animalForm = document.querySelector('#animal-form');
-        animalForm.addEventListener('submit', (event) => {
-            evebt.preventDefault(); // 이래야 form 기본 제출을 막을 수 있음
-            // formValues
-            const animalName = document.querySelector('animal-name').value;
-            const animalDesc = document.querySelector('animal-desc').value;
-            console.log(animalName, animalDesc);
-        })
-    </script>
-
+</section>
+<script>
+    const animalForm = document.querySelector('#animal-form');
+    animalForm.addEventListener('submit', async (event) => {
+        event.preventDefault(); // 이래야 form 기본 제출을 막을 수 있음.
+        // formValues
+        const name = document.querySelector('#animal-name').value;
+        const description = document.querySelector('#animal-desc').value;
+        console.log("animalName", name);
+        console.log("animalDesc", description);
+        const response = await fetch('/api/animals', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'body': JSON.stringify({
+                    name, description,
+                })
+            }
+        });
+        console.log(await response.json());
+    });
+</script>
 </body>
 </html>
