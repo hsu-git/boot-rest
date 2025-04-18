@@ -1,21 +1,21 @@
-server:
-  port: 8080 # 충돌 문제 시 수정
+#server:
+#  port: 8080 # 충돌 문제 시 수정
 spring:
-  jpa:
-    hibernate:
-      #      ddl-auto: create # 배포 시는 none 또는 validate 추천
-      ddl-auto: none # 배포 시는 none 또는 validate 추천
+#  jpa:
+#    hibernate:
+#      #      ddl-auto: create # 배포 시는 none 또는 validate 추천
+#      ddl-auto: none # 배포 시는 none 또는 validate 추천
 #   MYSQL용 설정
-      properties:
-        hibernate:
-          dialect: org.hibernate.dialect.MySQL8Dialect
-          show_sql: true
-          format_sql: true
-    datasource:
-      driver-class-name: com.mysql.cj.jdbc.Driver # mysql
-      url: ${DB_URL}
-      username: ${DB_USERNAME}
-      password: ${DB_PASSWORD}
+#      properties:
+#        hibernate:
+#          dialect: org.hibernate.dialect.MySQL8Dialect
+#          show_sql: true
+#          format_sql: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver # mysql
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
 # 로깅 설정
 logging:
   level:
