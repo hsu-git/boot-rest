@@ -1,1 +1,5 @@
-spring.application.name=boot-rest
+spring:
+  application:
+    name: boot-rest
+  profiles:
+    active: dev
