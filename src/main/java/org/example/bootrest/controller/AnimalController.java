@@ -1,10 +1,30 @@
 package org.example.bootrest.controller;
 
+import org.example.bootrest.model.domain.Animal;
+import org.example.bootrest.service.AnimalService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController("/api/animal")  // 일반적으로 JSON 형태로 응답
-                                    // https://chatgpt.com/c/6801c1aa-f2f4-8004-8423-738eb30d8a17
-                                    // https://developer.mozilla.org/ko/docs/Web/HTTP/Reference/Methods
+import java.util.List;
+
+//@RestController("/api/animal")    // 이거 아님!
+@RestController // Spring
+@RequestMapping("/api/animal")  // 이거임!
 public class AnimalController {
+    private final AnimalService animalService;
+
+    public AnimalController(AnimalService animalService) {
+        this.animalService = animalService;
+    }
+
+    //    @GetMapping("/hello")
+//    public String hello() {
+//        return "hello";
+//    }
+    @GetMapping
+    public List<Animal> all() {
+        return animalService.findAll();
+    }
 
 }
